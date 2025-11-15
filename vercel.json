@@ -2,7 +2,12 @@
   "builds": [
     {
       "src": "next.config.ts",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "engines": {
+          "node": "20.x"
+        }
+      }
     }
   ]
 }
