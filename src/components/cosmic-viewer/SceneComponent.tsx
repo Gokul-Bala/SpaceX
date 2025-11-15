@@ -88,7 +88,7 @@ export function SceneComponent({
     const renderPass = new RenderPass(scene, camera);
     const bloomPass = new UnrealBloomPass(new THREE.Vector2(mountNode.clientWidth, mountNode.clientHeight), 1.5, 0.4, 0.85);
     bloomPass.threshold = 0;
-    bloomPass.strength = 1.2; // Reduced bloom strength
+    bloomPass.strength = 1.0;
     bloomPass.radius = 0;
     const composer = new EffectComposer(renderer);
     composer.addPass(renderPass);
@@ -233,8 +233,12 @@ export function SceneComponent({
       window.removeEventListener('resize', handleResize);
       mountNode.removeEventListener('click', onMouseClick);
       
-      mountNode.removeChild(renderer.domElement);
-      mountNode.removeChild(labelRenderer.domElement);
+      if (mountNode && renderer.domElement) {
+        mountNode.removeChild(renderer.domElement);
+      }
+      if (mountNode && labelRenderer.domElement) {
+        mountNode.removeChild(labelRenderer.domElement);
+      }
       
       scene.traverse(object => {
         if (object instanceof THREE.Mesh) {
