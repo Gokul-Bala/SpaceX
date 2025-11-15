@@ -33,6 +33,7 @@ export function SceneComponent({
   const mountRef = useRef<HTMLDivElement>(null);
   const sceneElementsRef = useRef<any>({});
   const animationPropsRef = useRef({ timeScale, isPaused, autoRotate });
+  const isSceneInitialized = useRef(false);
 
   useEffect(() => {
     animationPropsRef.current = { timeScale, isPaused, autoRotate };
@@ -53,8 +54,9 @@ export function SceneComponent({
   }, [showLabels]);
 
   useEffect(() => {
+    if (isSceneInitialized.current || !mountRef.current) return;
+    
     const mountNode = mountRef.current;
-    if (!mountNode) return;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, mountNode.clientWidth / mountNode.clientHeight, 0.1, 5000);
@@ -80,7 +82,7 @@ export function SceneComponent({
     const renderPass = new RenderPass(scene, camera);
     const bloomPass = new UnrealBloomPass(new THREE.Vector2(mountNode.clientWidth, mountNode.clientHeight), 1.5, 0.4, 0.85);
     bloomPass.threshold = 0;
-    bloomPass.strength = 1.5;
+    bloomPass.strength = 1.2; // Reduced bloom strength
     bloomPass.radius = 0;
     const composer = new EffectComposer(renderer);
     composer.addPass(renderPass);
@@ -124,7 +126,6 @@ export function SceneComponent({
       const planet = new THREE.Mesh(new THREE.SphereGeometry(scaledRadius, 32, 32), material);
       planet.userData = data;
 
-      let ringMesh;
       if (data.ringTextureId) {
         const ringTexture = textureLoader.load(PlaceHolderImages.find(p => p.id === data.ringTextureId)?.imageUrl || '');
         ringTexture.rotation = Math.PI / 2;
@@ -132,7 +133,7 @@ export function SceneComponent({
           map: ringTexture, side: THREE.DoubleSide, transparent: true, opacity: 0.8
         });
         const ringGeometry = new THREE.RingGeometry(scaledRadius * 1.5, scaledRadius * 2.5, 64);
-        ringMesh = new THREE.Mesh(ringGeometry, ringMaterial);
+        const ringMesh = new THREE.Mesh(ringGeometry, ringMaterial);
         ringMesh.rotation.x = -Math.PI / 2;
         planet.add(ringMesh);
       }
@@ -193,6 +194,7 @@ export function SceneComponent({
     };
 
     const onMouseClick = (event: MouseEvent) => {
+      if ((event.target as HTMLElement) !== renderer.domElement) return;
       const rect = renderer.domElement.getBoundingClientRect();
       mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
       mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
@@ -214,17 +216,16 @@ export function SceneComponent({
     mountNode.addEventListener('click', onMouseClick);
     window.addEventListener('resize', handleResize);
     animate();
+    
+    isSceneInitialized.current = true;
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
       mountNode.removeEventListener('click', onMouseClick);
-      if (mountNode && renderer.domElement) {
-        mountNode.removeChild(renderer.domElement);
-      }
-      if (mountNode && labelRenderer.domElement) {
-        mountNode.removeChild(labelRenderer.domElement);
-      }
+      
+      mountNode.removeChild(renderer.domElement);
+      mountNode.removeChild(labelRenderer.domElement);
       
       scene.traverse(object => {
         if (object instanceof THREE.Mesh) {
@@ -237,8 +238,11 @@ export function SceneComponent({
         }
       });
       renderer.dispose();
+      isSceneInitialized.current = false;
     };
-  }, [onLoadProgress, onLoaded, onPlanetClick]);
+  }, [onLoadProgress, onLoaded, onPlanetClick]); // Keep dependencies to run once
 
   return <div ref={mountRef} className="w-full h-full" />;
 }
+
+    
