@@ -6,7 +6,6 @@ import { SceneComponent } from "./SceneComponent";
 import { Loader } from "./Loader";
 import { PlanetInfoCard } from "./PlanetInfoCard";
 import { ControlsPanel } from "./ControlsPanel";
-import { AuraXLogo } from "./AuraXLogo";
 
 export default function CosmicViewer() {
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -48,9 +47,6 @@ export default function CosmicViewer() {
       {!isLoaded && <Loader progress={loadingProgress} />}
 
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-4 left-4">
-          <AuraXLogo />
-        </div>
         <PlanetInfoCard planet={selectedPlanet} onClose={handleCloseInfoCard} />
         {!selectedPlanet && (
           <ControlsPanel
