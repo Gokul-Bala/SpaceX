@@ -3,8 +3,15 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'AuraX',
-  description: 'An interactive 3D model of the solar system.',
+  title: {
+    default: 'AuraX - Interactive 3D Solar System',
+    template: '%s | AuraX',
+  },
+  description: 'Explore the solar system with AuraX, an interactive 3D model. Discover planets, moons, and the sun with detailed information and realistic visuals.',
+  keywords: ['solar system', '3d model', 'interactive', 'space', 'planets', 'AuraX', 'astronomy'],
+  authors: [{ name: 'Firebase Studio' }],
+  creator: 'Firebase Studio',
+  publisher: 'Firebase Studio',
 };
 
 export default function RootLayout({
