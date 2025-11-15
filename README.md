@@ -1,4 +1,4 @@
-j# AuraX - Interactive 3D Solar System
+# AuraX - Interactive 3D Solar System
 
 This is an interactive 3D model of the solar system built with Next.js, React, and Three.js. Explore planets, moons, and the sun with detailed information and realistic visuals.
 
@@ -46,7 +46,7 @@ This project is optimized for deployment on [Vercel](https://vercel.com/). Follo
 
 4.  **Configure and Deploy:**
     - Vercel will automatically detect that this is a Next.js project and configure the build settings for you.
-    - You don't need to change any settings. The `vercel.json` file in the repository already specifies the correct Node.js version.
+    - You don't need to change any settings.
     - Click the **"Deploy"** button.
 
 5.  **Done!**

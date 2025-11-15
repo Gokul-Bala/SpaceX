@@ -9,9 +9,6 @@ export const metadata: Metadata = {
   },
   description: 'Dive into AuraX, an interactive 3D model of our solar system. Explore planets, moons, and the sun in stunning detail. A beautiful and educational astronomical journey powered by Next.js and Three.js.',
   keywords: ['AuraX', 'solar system', '3d model', 'interactive', 'space', 'planets', 'astronomy', 'cosmos', 'universe', 'education', 'science', '3D visualization', 'webgl'],
-  authors: [{ name: 'Firebase Studio' }],
-  creator: 'Firebase Studio',
-  publisher: 'Firebase Studio',
 };
 
 export default function RootLayout({
