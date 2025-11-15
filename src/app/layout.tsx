@@ -3,10 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: {
-    default: 'AuraX',
-    template: '%s | AuraX',
-  },
+  title: 'AuraX',
   description: 'Dive into AuraX, an interactive 3D model of our solar system. Explore planets, moons, and the sun in stunning detail. A beautiful and educational astronomical journey powered by Next.js and Three.js.',
   keywords: ['AuraX', 'solar system', '3d model', 'interactive', 'space', 'planets', 'astronomy', 'cosmos', 'universe', 'education', 'science', '3D visualization', 'webgl'],
 };
