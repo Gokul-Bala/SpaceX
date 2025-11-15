@@ -17,10 +17,10 @@ export function PlanetInfoCard({ planet, onClose }: PlanetInfoCardProps) {
 
   return (
     <Card className="absolute top-4 left-4 w-80 max-w-[calc(100vw-2rem)] bg-card/80 backdrop-blur-sm animate-in fade-in zoom-in-95 pointer-events-auto">
-      <CardHeader>
+      <CardHeader className="relative">
         <CardTitle className="text-primary">{planet.name}</CardTitle>
         <CardDescription>Astronomical Data</CardDescription>
-        <Button variant="ghost" size="icon" className="absolute top-2 right-2" onClick={onClose}>
+        <Button variant="ghost" size="icon" className="absolute top-3 right-3 h-6 w-6" onClick={onClose}>
           <X className="h-4 w-4" />
           <span className="sr-only">Close</span>
         </Button>
