@@ -19,7 +19,7 @@ export default function CosmicViewer() {
   const [isPaused, setIsPaused] = useState(false);
   const [autoRotate, setAutoRotate] = useState(false);
 
-  const handlePlanetClick = useCallback((planet: CelestialData) => {
+  const handlePlanetClick = useCallback((planet: CelestialData | null) => {
     setSelectedPlanet(planet);
   }, []);
 

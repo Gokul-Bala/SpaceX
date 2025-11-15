@@ -13,7 +13,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 type SceneProps = {
   onLoadProgress: (progress: number) => void;
   onLoaded: () => void;
-  onPlanetClick: (planet: CelestialData) => void;
+  onPlanetClick: (planet: CelestialData | null) => void;
   showOrbits: boolean;
   showLabels: boolean;
   timeScale: number;
@@ -202,6 +202,8 @@ export function SceneComponent({
       const intersects = raycaster.intersectObjects(planetMeshes);
       if (intersects.length > 0) {
         onPlanetClick(intersects[0].object.userData as CelestialData);
+      } else {
+        onPlanetClick(null); // Clicked on empty space
       }
     };
 
