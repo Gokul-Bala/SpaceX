@@ -103,6 +103,9 @@ export function ControlsPanel({
                 onValueChange={(value) => setTimeScale(value[0])}
                 disabled={isPaused}
               />
+            <div className="text-center text-xs text-muted-foreground mt-3">
+              Made with WebAura
+            </div>
           </div>
         </DropdownMenuContent>
       </DropdownMenu>
