@@ -219,8 +219,12 @@ export function SceneComponent({
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
       mountNode.removeEventListener('click', onMouseClick);
-      mountNode.removeChild(renderer.domElement);
-      mountNode.removeChild(labelRenderer.domElement);
+      if (mountNode && renderer.domElement) {
+        mountNode.removeChild(renderer.domElement);
+      }
+      if (mountNode && labelRenderer.domElement) {
+        mountNode.removeChild(labelRenderer.domElement);
+      }
       
       scene.traverse(object => {
         if (object instanceof THREE.Mesh) {
@@ -234,7 +238,7 @@ export function SceneComponent({
       });
       renderer.dispose();
     };
-  }, []);
+  }, [onLoadProgress, onLoaded, onPlanetClick]);
 
   return <div ref={mountRef} className="w-full h-full" />;
 }
