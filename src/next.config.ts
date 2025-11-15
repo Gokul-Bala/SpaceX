@@ -27,20 +27,6 @@ const nextConfig: NextConfig = {
       }
     ]
   },
-  ...(process.env.NODE_ENV === 'development'
-    ? {
-        rewrites: async () => {
-          return {
-            beforeFiles: [
-              {
-                source: '/:path*',
-                destination: `http://localhost:9002/:path*`,
-              },
-            ],
-          };
-        },
-      }
-    : {}),
 };
 
 export default nextConfig;
