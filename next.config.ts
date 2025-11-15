@@ -30,6 +30,19 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Allow cross-origin requests from the development environment.
+  // This is required for the app to work correctly in Firebase Studio.
+  ...(process.env.NODE_ENV === 'development' && {
+    devIndicators: {
+      buildActivity: false,
+    },
+    experimental: {
+      allowedDevOrigins: [
+        'https://*.cloudworkstations.dev',
+        'https://*.firebase.studio',
+      ],
+    },
+  }),
 };
 
 export default nextConfig;
