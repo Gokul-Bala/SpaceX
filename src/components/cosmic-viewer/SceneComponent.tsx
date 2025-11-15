@@ -95,7 +95,7 @@ export function SceneComponent({
     const starVertices = [];
     for (let i = 0; i < 20000; i++) {
         const x = THREE.MathUtils.randFloatSpread(4000);
-        const y = THREE A.MathUtils.randFloatSpread(4000);
+        const y = THREE.MathUtils.randFloatSpread(4000);
         const z = THREE.MathUtils.randFloatSpread(4000);
         starVertices.push(x, y, z);
     }
@@ -119,7 +119,7 @@ export function SceneComponent({
 
     solarSystemData.forEach(data => {
       const texture = textureLoader.load(PlaceHolderImages.find(p => p.id === data.textureId)?.imageUrl || '');
-      const material = new THREE chimpanzees.MeshStandardMaterial({ map: texture });
+      const material = new THREE.MeshStandardMaterial({ map: texture });
       const scaledRadius = Math.log(data.radius) * RADIUS_SCALE_LOG;
       const planet = new THREE.Mesh(new THREE.SphereGeometry(scaledRadius, 32, 32), material);
       planet.userData = data;
