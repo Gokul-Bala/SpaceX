@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: {
-    default: 'AuraX - Interactive 3D Solar System',
-    template: '%s | AuraX',
+    default: 'AuraX',
+    template: '%s | AuraX - Interactive 3D Solar System',
   },
   description: 'Explore the solar system with AuraX, an interactive 3D model. Discover planets, moons, and the sun with detailed information and realistic visuals.',
   keywords: ['solar system', '3d model', 'interactive', 'space', 'planets', 'AuraX', 'astronomy'],
