@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "sun_texture",
+      "description": "Sun texture",
+      "imageUrl": "https://images.unsplash.com/photo-1529788295308-1eace6f67388?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdW4lMjBzcGFjZXxlbnwwfHx8fDE3NjMyMTQzMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun space"
+    },
+    {
+      "id": "mercury_texture",
+      "description": "Mercury texture",
+      "imageUrl": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwbGFuZXQlMjBtZXJjdXJ5fGVufDB8fHx8MTc2MzIxNDMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet mercury"
+    },
+    {
+      "id": "venus_texture",
+      "description": "Venus texture",
+      "imageUrl": "https://images.unsplash.com/photo-1590907043334-8eba76905b92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwbGFuZXQlMjB2ZW51c3xlbnwwfHx8fDE3NjMyMTQzMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet venus"
+    },
+    {
+      "id": "earth_texture",
+      "description": "Earth texture",
+      "imageUrl": "https://images.unsplash.com/photo-1634176866089-b633f4aec882?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbGFuZXQlMjBlYXJ0aHxlbnwwfHx8fDE3NjMyMTQzMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet earth"
+    },
+    {
+      "id": "mars_texture",
+      "description": "Mars texture",
+      "imageUrl": "https://images.unsplash.com/photo-1689235540051-5c0e07074345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwbGFuZXQlMjBtYXJzfGVufDB8fHx8MTc2MzIxNDMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet mars"
+    },
+    {
+      "id": "jupiter_texture",
+      "description": "Jupiter texture",
+      "imageUrl": "https://images.unsplash.com/photo-1708257106556-c7a27af25a06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwbGFuZXQlMjBqdXBpdGVyfGVufDB8fHx8MTc2MzEzMTExM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet jupiter"
+    },
+    {
+      "id": "saturn_texture",
+      "description": "Saturn texture",
+      "imageUrl": "https://images.unsplash.com/photo-1596406206605-690cde4df504?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwbGFuZXQlMjBzYXR1cm58ZW58MHx8fHwxNzYzMjE0MzM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet saturn"
+    },
+    {
+      "id": "saturn_ring_texture",
+      "description": "Saturn ring texture",
+      "imageUrl": "https://images.unsplash.com/photo-1712510795944-dc46a5378dda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzYXR1cm4lMjByaW5nc3xlbnwwfHx8fDE3NjMyMTQzMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "saturn rings"
+    },
+    {
+      "id": "uranus_texture",
+      "description": "Uranus texture",
+      "imageUrl": "https://images.unsplash.com/photo-1760160090702-e4ed6dfe5c18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwbGFuZXQlMjB1cmFudXN8ZW58MHx8fHwxNzYzMjE0MzM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet uranus"
+    },
+    {
+      "id": "neptune_texture",
+      "description": "Neptune texture",
+      "imageUrl": "https://images.unsplash.com/photo-1707653057012-9a01ea6ae885?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwbGFuZXQlMjBuZXB0dW5lfGVufDB8fHx8MTc2MzIxNDMzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "planet neptune"
+    }
+  ]
 }
