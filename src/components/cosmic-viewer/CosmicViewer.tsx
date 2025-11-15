@@ -48,18 +48,20 @@ export default function CosmicViewer() {
 
       <div className="absolute inset-0 pointer-events-none">
         <PlanetInfoCard planet={selectedPlanet} onClose={handleCloseInfoCard} />
-        <ControlsPanel
-          showOrbits={showOrbits}
-          setShowOrbits={setShowOrbits}
-          showLabels={showLabels}
-          setShowLabels={setShowLabels}
-          timeScale={timeScale}
-          setTimeScale={setTimeScale}
-          isPaused={isPaused}
-          setIsPaused={setIsPaused}
-          autoRotate={autoRotate}
-          setAutoRotate={setAutoRotate}
-        />
+        {!selectedPlanet && (
+          <ControlsPanel
+            showOrbits={showOrbits}
+            setShowOrbits={setShowOrbits}
+            showLabels={showLabels}
+            setShowLabels={setShowLabels}
+            timeScale={timeScale}
+            setTimeScale={setTimeScale}
+            isPaused={isPaused}
+            setIsPaused={setIsPaused}
+            autoRotate={autoRotate}
+            setAutoRotate={setAutoRotate}
+          />
+        )}
       </div>
     </div>
   );
