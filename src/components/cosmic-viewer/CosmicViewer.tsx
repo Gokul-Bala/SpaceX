@@ -47,6 +47,9 @@ export default function CosmicViewer() {
       {!isLoaded && <Loader progress={loadingProgress} />}
 
       <div className="absolute inset-0 pointer-events-none">
+        <h1 className="absolute top-4 left-4 text-2xl font-bold text-white pointer-events-auto">
+          AuraX
+        </h1>
         <PlanetInfoCard planet={selectedPlanet} onClose={handleCloseInfoCard} />
         {!selectedPlanet && (
           <ControlsPanel

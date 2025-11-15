@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Cosmic Viewer',
+  title: 'AuraX',
   description: 'An interactive 3D model of the solar system.',
 };
 
