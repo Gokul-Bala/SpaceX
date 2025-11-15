@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "next.config.ts",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/genkit/:slug*",
+      "destination": "/api/genkit/:slug*"
+    }
+  ],
+  "functions": {
+    "api/genkit/**/*": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}
