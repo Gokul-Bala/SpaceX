@@ -34,6 +34,12 @@ export function SceneComponent({
   const sceneElementsRef = useRef<any>({});
   const animationPropsRef = useRef({ timeScale, isPaused, autoRotate });
   const isSceneInitialized = useRef(false);
+  const callbacksRef = useRef({ onLoadProgress, onLoaded, onPlanetClick });
+
+  // Keep callbacks up to date without re-triggering the effect
+  useEffect(() => {
+    callbacksRef.current = { onLoadProgress, onLoaded, onPlanetClick };
+  }, [onLoadProgress, onLoaded, onPlanetClick]);
 
   useEffect(() => {
     animationPropsRef.current = { timeScale, isPaused, autoRotate };
@@ -88,9 +94,12 @@ export function SceneComponent({
     composer.addPass(renderPass);
     composer.addPass(bloomPass);
 
-    const loadingManager = new THREE.LoadingManager(onLoaded, (url, loaded, total) => {
-      onLoadProgress((loaded / total) * 100);
-    });
+    const loadingManager = new THREE.LoadingManager(
+      () => callbacksRef.current.onLoaded(),
+      (url, loaded, total) => {
+        callbacksRef.current.onLoadProgress((loaded / total) * 100);
+      }
+    );
     const textureLoader = new THREE.TextureLoader(loadingManager);
 
     const starGeometry = new THREE.BufferGeometry();
@@ -144,7 +153,6 @@ export function SceneComponent({
         new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.2 })
       );
       orbit.rotation.x = -Math.PI / 2;
-      orbit.visible = showOrbits;
       scene.add(orbit);
 
       const labelDiv = document.createElement('div');
@@ -152,7 +160,6 @@ export function SceneComponent({
       labelDiv.textContent = data.name;
       const label = new CSS2DObject(labelDiv);
       label.position.set(0, scaledRadius + 2, 0);
-      label.visible = showLabels;
       planet.add(label);
 
       const planetGroup = new THREE.Object3D();
@@ -201,9 +208,9 @@ export function SceneComponent({
       raycaster.setFromCamera(mouse, camera);
       const intersects = raycaster.intersectObjects(planetMeshes);
       if (intersects.length > 0) {
-        onPlanetClick(intersects[0].object.userData as CelestialData);
+        callbacksRef.current.onPlanetClick(intersects[0].object.userData as CelestialData);
       } else {
-        onPlanetClick(null); // Clicked on empty space
+        callbacksRef.current.onPlanetClick(null); // Clicked on empty space
       }
     };
 
@@ -242,9 +249,7 @@ export function SceneComponent({
       renderer.dispose();
       isSceneInitialized.current = false;
     };
-  }, [onLoadProgress, onLoaded, onPlanetClick]); // Keep dependencies to run once
+  }, []); // Run this effect only once on component mount
 
   return <div ref={mountRef} className="w-full h-full" />;
 }
-
-    
