@@ -1,4 +1,4 @@
-# AuraX - Interactive 3D Solar System
+j# AuraX - Interactive 3D Solar System
 
 This is an interactive 3D model of the solar system built with Next.js, React, and Three.js. Explore planets, moons, and the sun with detailed information and realistic visuals.
 
